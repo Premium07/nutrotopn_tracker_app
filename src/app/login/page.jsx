@@ -1,8 +1,10 @@
 "use client";
 import React, { useState } from "react";
 import Link from "next/link";
+import { useRouter } from "next/navigation";
 
 const Login = () => {
+  const router = useRouter()
   const [details, setDetails] = useState({});
 
   const [messgage, setMessage] = useState();
@@ -14,27 +16,36 @@ const Login = () => {
   const handleSubmit = (e) => {
     e.preventDefault();
 
-    fetch("https://dummyjson.com/auth/login", {
-      method: "POST",
-      headers: { "Content-Type": "application/json" },
-      body: JSON.stringify({
-        username: "admin",
-        password: "12345",
-      }),
-    })
-      .then((response) => {
-        if (response.status === 404) {
-          set;
-        }
-        res.json();
-      })
-      .then((data) => {
-        console.log(data);
-        navigate("/tracker");
-      })
-      .catch((err) => {
-        console.log(err);
-      });
+    if (
+      details.email === "abc@gmail.com" &&
+      details.password === "admin123"
+    ) {
+      console.log("Login successful");
+      router.push("/home");
+    } else {
+      console.log("Invalid data");
+    }
+    // fetch("https://dummyjson.com/auth/login", {
+    //   method: "POST",
+    //   headers: { "Content-Type": "application/json" },
+    //   body: JSON.stringify({
+    //     username: "admin",
+    //     password: "12345",
+    //   }),
+    // })
+    //   .then((response) => {
+    //     if (response.status === 404) {
+    //       set;
+    //     }
+    //     res.json();
+    //   })
+    //   .then((data) => {
+    //     console.log(data);
+    //     router.push("/home");
+    //   })
+    //   .catch((err) => {
+    //     console.log(err);
+    //   });
     // console.log(details)
   };
 
