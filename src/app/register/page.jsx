@@ -22,7 +22,7 @@ const Register = () => {
     if (
       details.email === "abc@gmail.com" &&
       details.password === "1" &&
-      details.name === "p"
+      details.name === "prem"
     ) {
       console.log("Login successful");
       router.push("/home");
